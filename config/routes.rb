@@ -3,4 +3,8 @@ Rails.application.routes.draw do
   resources :athletes, only: %i[index show] do
     resources :tips, only: %i[create]
   end
+
+  resources :users, only: [] do
+    post 'login', on: :collection, action: :create
+  end
 end
